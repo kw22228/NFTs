@@ -1,2 +1,3 @@
-# NFTs
-create nft sample
+# NTFs
+
+-   Create NFT sample page.
