@@ -1,0 +1,2 @@
+# NFTs
+create nft sample
