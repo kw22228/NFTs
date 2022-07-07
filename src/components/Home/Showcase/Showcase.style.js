@@ -4,6 +4,8 @@ export const Section = styled.section`
     min-height: 100vh;
     width: 100vw;
     background-color: ${props => props.theme.text};
+    overflow: hidden;
+    overflow-x: hidden;
 
     display: flex;
     flex-direction: column;
@@ -11,11 +13,18 @@ export const Section = styled.section`
     align-items: center;
 
     position: relative;
+
+    & > *:first-child {
+        animation-duration: 10s;
+    }
+    & > *:last-child {
+        animation-duration: 15s;
+    }
 `;
 
 const move = keyframes`
     0%{
-        transform: translateX(100%);
+        transform: translateX(110%);
     };
 
     100%{
@@ -29,7 +38,7 @@ export const Row = styled.div`
 
     display: flex;
 
-    animation: ${move} 20s linear infinite ${props => props.direction};
+    animation: ${move} linear infinite ${props => props.direction};
 `;
 
 export const ImgContainer = styled.div`

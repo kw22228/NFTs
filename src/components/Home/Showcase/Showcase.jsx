@@ -1,6 +1,5 @@
 import React from 'react';
 import * as s from './Showcase.style';
-import importAll from '../../../utils/importAll';
 
 import img1 from '../../../assets/Nfts/bighead-1.svg';
 import img2 from '../../../assets/Nfts/bighead-2.svg';
@@ -15,10 +14,18 @@ import img10 from '../../../assets/Nfts/bighead-10.svg';
 import img11 from '../../../assets/Nfts/bighead-11.svg';
 
 import ETH from '../../../assets/Ethereum.svg';
+import { useRef } from 'react';
 
-const NftItem = ({ img, number = 0, price = 0 }) => {
+const NftItem = ({ img, number = 0, price = 0, passRef }) => {
+    const play = e => {
+        passRef.current.style.animationPlayState = 'running';
+    };
+    const pause = e => {
+        passRef.current.style.animationPlayState = 'paused';
+    };
+
     return (
-        <s.ImgContainer>
+        <s.ImgContainer onMouseOver={e => pause(e)} onMouseOut={e => play(e)}>
             <img src={img} alt="The Weirods" />
             <s.Details>
                 <div>
@@ -39,23 +46,26 @@ const NftItem = ({ img, number = 0, price = 0 }) => {
     );
 };
 const Showcase = () => {
+    const row1Ref = useRef(null);
+    const row2Ref = useRef(null);
+
     return (
         <s.Section>
-            <s.Row direction="none">
-                <NftItem img={img1} number={85} price={1.5} />
-                <NftItem img={img2} number={123} price={1.2} />
-                <NftItem img={img3} number={456} price={2.5} />
-                <NftItem img={img4} number={666} price={3.5} />
-                <NftItem img={img5} number={452} price={4.5} />
-                <NftItem img={img6} number={332} price={7.5} />
+            <s.Row direction="none" ref={row1Ref}>
+                <NftItem img={img1} number={85} price={1.5} passRef={row1Ref} />
+                <NftItem img={img2} number={123} price={1.2} passRef={row1Ref} />
+                <NftItem img={img3} number={456} price={2.5} passRef={row1Ref} />
+                <NftItem img={img4} number={666} price={3.5} passRef={row1Ref} />
+                <NftItem img={img5} number={452} price={4.5} passRef={row1Ref} />
+                <NftItem img={img6} number={332} price={7.5} passRef={row1Ref} />
             </s.Row>
 
-            <s.Row direction="reverse">
-                <NftItem img={img7} number={888} price={1.3} />
-                <NftItem img={img8} number={211} price={0.5} />
-                <NftItem img={img9} number={455} price={1.4} />
-                <NftItem img={img10} number={456} price={1.3} />
-                <NftItem img={img11} number={867} price={3.1} />
+            <s.Row direction="reverse" ref={row2Ref}>
+                <NftItem img={img7} number={888} price={1.3} passRef={row2Ref} />
+                <NftItem img={img8} number={211} price={0.5} passRef={row2Ref} />
+                <NftItem img={img9} number={455} price={1.4} passRef={row2Ref} />
+                <NftItem img={img10} number={456} price={1.3} passRef={row2Ref} />
+                <NftItem img={img11} number={867} price={3.1} passRef={row2Ref} />
             </s.Row>
         </s.Section>
     );
