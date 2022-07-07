@@ -9,7 +9,7 @@ const ReactConfetti = () => {
             numberOfPieces={200}
             gravity={0.03}
             width={width}
-            height={height * 1.75}
+            height={height * 1.5}
         />
     );
 };
