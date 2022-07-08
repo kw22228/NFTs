@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Btn = styled.button`
     display: inline-block;
-    background-color: ${props => props.theme.text};
-    color: ${props => props.theme.body};
+    background-color: ${props => (props.btnColor === 'dark' ? props.theme.text : props.theme.body)};
+    color: ${props => (props.btnColor === 'dark' ? props.theme.body : props.theme.text)};
 
     outline: none;
     border: none;
@@ -27,7 +27,8 @@ export const Btn = styled.button`
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
 
-        border: 2px solid ${props => props.theme.text};
+        border: 2px solid
+            ${props => (props.btnColor === 'dark' ? props.theme.text : props.theme.body)};
         width: 100%;
         height: 100%;
         border-radius: 50px;
