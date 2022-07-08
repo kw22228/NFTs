@@ -25,10 +25,25 @@ export const Container = styled.div`
     width: 75vw;
     margin: 2rem auto;
 
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: 1280px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1040px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 730px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `;
 
 export const Item = styled.div`

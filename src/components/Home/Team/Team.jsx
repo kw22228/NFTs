@@ -29,21 +29,20 @@ const Member = ({ img, name = '', position = '' }) => {
 
 const Team = () => {
     const { width, height } = useWindowSize();
-    console.log(height);
 
     return (
-        <s.Section>
+        <s.Section id="team">
             <ReactConfetti />
             <s.Title>Team</s.Title>
             <s.Container>
-                <Member img={img1} name="SKYBLAZE" position="founder" />
-                <Member img={img2} name="MEGNUM" position="Co-founder" />
-                <Member img={img3} name="MONKEY KING" position="Director" />
-                <Member img={img4} name="BLACK PANTHER" position="Manager" />
-                <Member img={img5} name="DEATHSTROKE" position="Artist" />
-                <Member img={img6} name="LAZY KONG" position="Social media manager" />
-                <Member img={img7} name="CYBER PUNK" position="Blockchain Specialist" />
-                <Member img={img8} name="MONK" position="Web3 Developer" />
+                <Member img={img1} name="RED" position="Founder" />
+                <Member img={img2} name="ORANGE" position="Co-founder" />
+                <Member img={img3} name="YELLOW" position="Director" />
+                <Member img={img4} name="GREEN" position="Manager" />
+                <Member img={img5} name="BLUE" position="Artist" />
+                <Member img={img6} name="SKYBLUE" position="Social Media Manager" />
+                <Member img={img7} name="BLACK" position="Blockchain Specialist" />
+                <Member img={img8} name="PINK" position="Web3 Developer" />
                 <Member img={img9} name="BANANA" position="Graphic Designer" />
                 <Member img={img10} name="APPLE" position="FrontEnd Developer" />
                 <Member img={img11} name="PUPPLE" position="BackEnd Developer" />
