@@ -42,7 +42,7 @@ const DrawSvg = () => {
                         ballRef.current.style.display = 'inline-block';
                     }
                 },
-                markers: true,
+                // markers: true,
             },
         });
 
