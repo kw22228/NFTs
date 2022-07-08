@@ -54,7 +54,7 @@ const RoadMap = () => {
         });
     });
     return (
-        <s.Section>
+        <s.Section id="roadmap">
             <s.Title>Roadmap</s.Title>
             <s.Container>
                 <s.SvgContainer>

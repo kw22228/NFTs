@@ -21,7 +21,7 @@ const Home = () => {
     ];
     return (
         <>
-            <s.Section>
+            <s.Section id="home">
                 <s.Container>
                     <s.Box>
                         <s.Title>

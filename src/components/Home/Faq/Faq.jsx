@@ -1,11 +1,35 @@
-import React from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import React, { useRef } from 'react';
+import { useLayoutEffect } from 'react';
 import Accordion from '../../Accordion/Accordion';
 import * as s from './Faq.style';
 
 const Faq = () => {
+    const ref = useRef(null);
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    useLayoutEffect(() => {
+        const element = ref.current;
+
+        ScrollTrigger.create({
+            trigger: element,
+            start: 'top top',
+            end: 'bottom top',
+            pin: true,
+            pinSpacing: false,
+            // markers: true,
+            scrub: true,
+        });
+
+        return () => {
+            ScrollTrigger.kill();
+        };
+    });
     return (
-        <s.Section>
-            <s.Title>Faq</s.Title>
+        <s.Section ref={ref} id="faq">
+            <s.Title>FAQ</s.Title>
             <s.Container>
                 <s.Box>
                     <Accordion title="WHERE CAN I VIEW MY NFTS?">

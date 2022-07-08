@@ -12,7 +12,7 @@ const About = () => {
     const images = importAll(require.context('../../../assets/Nfts/', false, /bighead-.*\.svg$/));
 
     return (
-        <s.Section>
+        <s.Section id="about">
             <s.Container>
                 <s.Box>
                     <Carousel images={images} />
