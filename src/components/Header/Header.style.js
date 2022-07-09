@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { responsive } from '../../styles/variable';
 
 export const Section = styled.section`
     width: 100vw;
@@ -20,6 +21,24 @@ export const Menu = styled.ul`
     justify-content: center;
     align-items: center;
     list-style: none;
+
+    /* transition: all 0.3s ease; */
+
+    @media (${responsive.res1}) {
+        /* opacity: 0;
+        visibility: hidden; */
+        z-index: 100;
+        position: fixed;
+        top: ${props => props.theme.navHeight};
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0 auto;
+
+        width: 100vw;
+        height: ${props => `calc(100vh - ${props.theme.navHeight})`};
+        background-color: ${props => `rgba(${props.theme.bodyRgba}, 0.85)`};
+    }
 `;
 
 export const MenuItem = styled.li`
@@ -39,8 +58,6 @@ export const MenuItem = styled.li`
     &:hover::after {
         width: 100%;
     }
-
-    display: none;
 `;
 
 export const HamburgurMenu = styled.span`
@@ -60,6 +77,9 @@ export const HamburgurMenu = styled.span`
 
     z-index: 10;
     cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
 
     transition: all 0.3s ease;
 
@@ -82,5 +102,10 @@ export const HamburgurMenu = styled.span`
     &::before {
         bottom: ${props => (props.click ? '0.3rem' : '0.5rem')};
         transform: ${props => (props.click ? 'rotate(45deg)' : 'rotate(0deg)')};
+    }
+
+    @media (${responsive.res1}) {
+        opacity: 1;
+        visibility: visible;
     }
 `;
