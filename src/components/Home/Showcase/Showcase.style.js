@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { responsive } from '../../../styles/variable';
 
 export const Section = styled.section`
     min-height: 100vh;
@@ -16,9 +17,17 @@ export const Section = styled.section`
 
     & > *:first-child {
         animation-duration: 10s;
+
+        @media (${responsive.res2}) {
+            animation-duration: 15s;
+        }
     }
     & > *:last-child {
         animation-duration: 15s;
+
+        @media (${responsive.res2}) {
+            animation-duration: 10s;
+        }
     }
 `;
 
@@ -52,6 +61,13 @@ export const ImgContainer = styled.div`
     img {
         width: 100%;
         height: auto;
+    }
+
+    @media (${responsive.res2}) {
+        width: 12rem;
+    }
+    @media (${responsive.res3}) {
+        width: 10rem;
     }
 `;
 
