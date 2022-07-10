@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { responsive } from '../../styles/variable';
 
 export const VectorContainer = styled.div`
     position: absolute;
@@ -12,6 +13,10 @@ export const VectorContainer = styled.div`
     svg {
         width: 100%;
         height: 100%;
+    }
+
+    @media (${responsive.res2}) {
+        left: 1rem;
     }
 `;
 
@@ -34,4 +39,8 @@ export const Ball = styled.div`
     background-color: ${props => props.theme.text};
 
     animation: ${Bounce} 0.5s linear infinite alternate;
+
+    @media (${responsive.res2}) {
+        left: 1rem;
+    }
 `;

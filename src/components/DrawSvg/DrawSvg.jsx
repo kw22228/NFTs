@@ -28,6 +28,8 @@ const DrawSvg = () => {
                 start: 'top-=20% top',
                 end: 'bottom bottom',
                 onUpdate: self => {
+                    // console.log(self.progress);
+
                     // Scroll 할 시,
                     const draw = length * self.progress;
 
