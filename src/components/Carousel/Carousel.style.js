@@ -1,9 +1,25 @@
 import styled from 'styled-components';
 import Arrow from '../../assets/Arrow.svg';
+import { responsive } from '../../styles/variable';
 
 export const Container = styled.div`
     width: 25vw;
     height: 70vh;
+
+    @media (${responsive.res1}) {
+        height: 50vh;
+        width: 30vw;
+    }
+
+    @media (${responsive.res2}) {
+        height: 50vh;
+        width: 40vw;
+    }
+
+    @media (${responsive.res3}) {
+        height: 45vh;
+        width: 60vw;
+    }
 
     .swiper {
         width: 100%;
@@ -33,6 +49,14 @@ export const Container = styled.div`
         &:after {
             display: none;
         }
+
+        @media (${responsive.res1}) {
+            width: 3rem;
+        }
+
+        @media (${responsive.res2}) {
+            width: 2rem;
+        }
     }
 
     .swiper-button-prev {
@@ -48,6 +72,14 @@ export const Container = styled.div`
         transform: rotate(180deg);
         &:after {
             display: none;
+        }
+
+        @media (${responsive.res1}) {
+            width: 3rem;
+        }
+
+        @media (${responsive.res2}) {
+            width: 2rem;
         }
     }
 `;
