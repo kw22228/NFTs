@@ -3,7 +3,14 @@ import { responsive } from '../../styles/variable';
 
 export const Section = styled.section`
     width: 100vw;
-    background-color: ${props => props.theme.body};
+    background-color: ${props =>
+        props.scrolly > 0 ? `rgba(${props.theme.bodyRgba}, 0.7)` : props.theme.body};
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+
+    transition: all 0.3s ease;
 `;
 
 export const NavBar = styled.nav`
@@ -14,19 +21,32 @@ export const NavBar = styled.nav`
     width: 85%;
     height: ${props => props.theme.navHeight};
     margin: 0 auto;
+
+    .mobile {
+        display: none;
+    }
+
+    @media (${responsive.res1}) {
+        .desktop {
+            display: none;
+        }
+        .mobile {
+            display: block;
+        }
+    }
 `;
 
 export const Menu = styled.ul`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     list-style: none;
 
-    /* transition: all 0.3s ease; */
+    transition: opacity 0.3s ease;
 
     @media (${responsive.res1}) {
-        /* opacity: 0;
-        visibility: hidden; */
+        opacity: ${props => (props.click ? '1' : '0')};
+
         z-index: 100;
         position: fixed;
         top: ${props => props.theme.navHeight};
@@ -37,7 +57,13 @@ export const Menu = styled.ul`
 
         width: 100vw;
         height: ${props => `calc(100vh - ${props.theme.navHeight})`};
-        background-color: ${props => `rgba(${props.theme.bodyRgba}, 0.85)`};
+        background-color: ${props => `rgba(${props.theme.bodyRgba}, 0.7)`};
+        backdrop-filter: blur(4px);
+
+        flex-direction: column;
+        justify-content: center;
+
+        transform: ${props => (props.click ? 'translateY(0)' : 'translateY(100%)')};
     }
 `;
 
@@ -57,6 +83,10 @@ export const MenuItem = styled.li`
 
     &:hover::after {
         width: 100%;
+    }
+
+    @media (${responsive.res1}) {
+        margin: 1rem 0;
     }
 `;
 
